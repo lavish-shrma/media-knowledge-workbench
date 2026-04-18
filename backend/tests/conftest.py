@@ -11,13 +11,13 @@ TMP_DIR.mkdir(parents=True, exist_ok=True)
 os.environ["DATABASE_URL"] = f"sqlite:///{(TMP_DIR / 'test.db').as_posix()}"
 os.environ["UPLOADS_DIR"] = str(TMP_DIR / "uploads")
 
-from app.main import app
-from app.db.base import Base
-from app.db.session import engine
-from app.db.session import SessionLocal
-from app.models.user import User
-from app.services.auth import create_access_token
-from app.services.redis_store import reset_store
+from app.main import app  # noqa: E402
+from app.db.base import Base  # noqa: E402
+from app.db.session import engine  # noqa: E402
+from app.db.session import SessionLocal  # noqa: E402
+from app.models.user import User  # noqa: E402
+from app.services.auth import create_access_token  # noqa: E402
+from app.services.redis_store import reset_store  # noqa: E402
 
 Base.metadata.create_all(bind=engine)
 
